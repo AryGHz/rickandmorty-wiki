@@ -1,5 +1,6 @@
 require('dotenv').config();
 // console.log(process.env)
+const pg = require('pg')
 const { Sequelize } = require('sequelize');
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME } = process.env;
 //console.log( DB_USER, DB_PASSWORD, DB_HOST)
@@ -18,7 +19,7 @@ const UserModel = require('./models/User');
 const sequelize = new Sequelize(
    // URL
    `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`,
-   { logging: false, native: false },
+   { logging: false, native: false, dialect:"postgres", dialectModule: pg },
 );
 
 // EJERCICIO 05
