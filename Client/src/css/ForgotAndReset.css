@@ -1,0 +1,30 @@
+.forgot{
+  display: block;
+  width: 100vw;
+}
+
+.forgot-h1{
+  font-size: 2rem;
+}
+
+
+ .forgot p{
+  padding: 0 2vw;
+   font-size: 1.2rem;
+   font-weight: bold;
+ }
+
+ .forgot #forgot-set-modal h1 {
+  font-size: 1.3rem;
+ }
+
+ @media (width <= 700px){
+  .forgot-h1{
+    font-size: 1.5rem;
+  }
+  .forgot p{
+    font-size: 1rem;
+    
+  }
+
+ }

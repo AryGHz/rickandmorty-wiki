@@ -1,0 +1,170 @@
+.form{
+  margin: 5vh auto;
+  width: 100vw;
+}
+
+  .form label{
+    color: #35c9dd;
+    display: block;
+    font-family: "Creepster", "sans-serif";
+    letter-spacing: 0.1rem;
+    font-size: 1.8rem;
+    margin: 1.3rem auto 0.3rem;
+    -webkit-text-stroke:  0.8px 	black;
+    text-shadow: 2px 0 0 #88e23b,0 2px 0 #88e23b,-2px 0 0 #88e23bed,0 -2px 0 #88e23b;
+  }
+  
+  .form input{
+    font-size: 1rem;
+    display: block;
+    width: 25vw;
+    height: 3vh;
+    border-radius: 10px;
+    margin: 0.3rem auto 
+  }
+
+  #input-img{
+    margin: 2vh auto 1vh auto;
+    width: 25vw;
+
+    color:#35c9dd;
+    font-weight: bold;
+    border: 3px solid whitesmoke;
+  }
+
+  #input-img:hover{
+   
+    background:#88e23b;
+   
+  }
+  
+  .form button{
+    display: block;
+    width: 12vw;
+    height: 4vh;
+    margin: 4vh auto 0 ;
+    background-color: 	#35c9dd;
+    border-color: #88e23b;
+    font-family: "Creepster", "sans-serif";
+    font-size: 1.4rem;
+    letter-spacing: 0.1rem;
+    /* font-weight: 700; */
+  }
+  
+  .form button:hover{
+    background-color: #88e23b;
+    
+  }
+  
+  .form span{
+    color: red;
+    font-size: 1rem;
+    font-weight: bold;
+    display: block;
+    width: 25vw;
+    /* height: 2vw; */
+    margin: auto;
+  }
+
+  .form textarea{
+
+    font-size: 1rem;
+    color: #181817;
+
+    border-radius: 10px;
+    margin: 0.3rem auto;
+    width: 25vw;
+    height: 15vh;
+    box-sizing: border-box;
+  }
+
+  .form p{
+    font-size: 1rem;
+    font-weight: bold;
+    display: block;
+    width: 25vw;
+    margin: 1vh auto 2vh;
+
+  }
+
+  @media(800px < width<=1150px){
+    .form input{
+      width: 35vw;
+    }
+
+    .form span{
+      width: 35vw;
+    }
+  
+    .form textarea{
+      width: 35vw;
+    }
+
+    .form p{
+      width: 35vw;
+    }
+
+    .form button{
+      width: 25vw;
+    }
+  
+  
+  }
+
+  @media( 500px < width<=800px){
+    .form input{
+      width: 60vw;
+    }
+
+    .form span{
+      width: 50vw;
+    }
+  
+    .form textarea{
+      width: 50vw;
+    }
+
+    .form p{
+      width: 50vw;
+    } 
+    
+    .form button{
+      width: 35vw;
+      height: 5vh;
+    }
+
+    #input-img{
+      width: 50vw;
+    }
+   
+  
+  }
+
+  @media( width<= 500px){
+    .form input{
+      width: 70vw;
+    }
+
+    .form span{
+      width: 70vw;
+    }
+  
+    .form textarea{
+      width: 70vw;
+    }
+
+    .form p{
+      width: 70vw;
+    } 
+    
+    .form button{
+      width: 60vw;
+      height: 5vh;
+    }
+
+    #input-img{
+      width: 75vw;
+    }
+  
+  
+  }

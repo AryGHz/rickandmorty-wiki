@@ -1,0 +1,12 @@
+.error{
+    color: whitesmoke;
+    font-size: 5rem;
+}
+
+@media( width<= 900px){
+    .error{
+       
+        font-size: 2rem;
+    }
+    
+}

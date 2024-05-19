@@ -1,0 +1,13 @@
+export const GET_FAV="GET_FAV";
+export const ADD_FAV="ADD_FAV";
+export const REMOVE_FAV="REMOVE_FAV";
+export const FILTER_FAV="FILTER_TYPE";
+export const ORDER_FAV="ORDER_FAV";
+
+export const GET_DATA="GET_DATA";
+export const FILTER_STATUS_DATA="FILTER_STATUS_DATA";
+export const FILTER_SPECIES_DATA="FILTER_SPECIES_DATA";
+export const FILTER_GENDER_DATA="FILTER_GENDER_DATA";
+export const FILTER_LOCATION_DATA="FILTER_LOCATION_DATA";
+export const ORDER_DATA="ORDER_DATA";
+export const CLEAR_DATA="CLEAR_DATA";

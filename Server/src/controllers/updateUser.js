@@ -1,0 +1,45 @@
+const {User} = require("../DB_connection");
+const validateAndHash = require('../config/validateAndHash');
+
+
+const updateUser = async (req,res) =>{
+    try {
+        const {username, password} = req.body
+        // console.log(req.body)
+
+    
+
+        const userFound = await User.findOne({
+            where: {id: req.user.id}
+        })
+
+        // console.log(userFound)
+        if(username){
+           
+           const updatedUsername= await userFound.update({username: username});
+        //    console.log('update user ---',updatedUsername)
+
+            return res.status(200).json(updatedUsername)
+
+    }
+
+        if(password){
+            const hashedPassword = await validateAndHash(password);
+            const updatedPassword=await userFound.update({password:hashedPassword})
+            // console.log('update password ---',updatedPassword)
+            return res.status(200).json(updatedPassword)
+        }
+
+        return res.status(400).json({error:'No data provided', status:400});
+        
+        
+    } catch (error) {
+        // console.log(error)
+        return res.status(500).json({error:error.message, status:500});
+    }
+    
+
+
+}
+
+module.exports = updateUser;

@@ -1,0 +1,154 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Erica+One&family=Happy+Monkey&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Corben:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kavoon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap');
+
+.landing{
+    display: block;
+    color: whitesmoke;
+    box-sizing: border-box;
+    width: 80vw;
+    margin: auto;
+    background: linear-gradient(135deg,rgba(255,255,255,0.1),rgba(255,255,255,0.2));
+    backdrop-filter: blur(10px);
+    border-radius: 18px;
+    margin: 40px auto 10px;
+
+}
+
+
+.landing h1 {
+ 
+    color: #35c9dd;
+    font-size: 3.2rem;
+    font-weight: bold;
+    font-family: "Creepster", "sans-serif";
+    letter-spacing: 0.1rem;
+    -webkit-text-stroke:  1px 	black;
+    text-shadow: 2px 0 0 #88e23b,0 2px 0 #88e23b,-2px 0 0 #88e23bed,0 -2px 0 #88e23b;
+}
+
+.landing img{
+    width: 75vw;
+    border-radius: 18px;
+}
+
+
+
+.landing p{
+  
+    text-align: justify;
+    padding: 10px;
+    font-size: 1.2rem;
+    font-weight:bold;
+    max-width: 75vw;
+    margin: auto;
+}
+
+.landing  h2{
+    
+    margin: 2rem auto 1rem;
+    color: #35c9dd;
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: "Creepster", "sans-serif";
+    letter-spacing: 0.1rem;
+    -webkit-text-stroke:  1px 	black;
+    text-shadow: 2px 0 0 #88e23b,0 2px 0 #88e23b,-2px 0 0 #88e23bed,0 -2px 0 #88e23b;
+}
+
+
+
+.cards-landing{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card-landing{
+    max-width: 150px;
+    display: block;
+    margin: 1vw;
+    border-radius: 20px;
+    padding: 0.5rem;
+}
+
+.card-landing img{
+
+    border: 2px solid #151715;
+    object-fit: cover;
+    border-radius: 20px;
+    max-width: 150px;
+    height: 150px;
+}
+
+.card-landing h2{
+ 
+    font-size: 1.5rem;
+    text-align: center;
+    margin: auto;
+    text-shadow: none;
+    color: whitesmoke;
+
+}
+
+.links div{
+    margin: 2rem auto;
+}
+
+.links p{
+    text-align: center;
+    font-size: 1.2rem;
+
+    color: whitesmoke;
+    font-weight: bold;
+
+
+}
+
+.links a{
+    font-size: 1.2rem;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+.links a:hover{
+    color:#88e23b
+}
+
+
+@media (width <= 912px) {
+    .landing h1 {
+        font-size: 2.5rem;
+    }
+
+    .landing h2 {
+        font-size: 1.3rem;
+    }
+
+    .landing p{
+        font-size: 0.9rem;
+    }
+
+    .card-landing{
+        max-width: 100px;
+      
+    }
+
+    .card-landing img{
+        max-width: 100px;
+        height: 100px;
+    }
+
+    .links p{
+        font-size: 0.9rem;
+    }
+
+    .links a{
+        font-size: 0.9rem;
+    }
+
+   
+
+}

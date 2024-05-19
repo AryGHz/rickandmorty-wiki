@@ -1,0 +1,282 @@
+
+.nav-container{
+   display: block;
+   height: 16vh;
+   width: 100vw;
+   /* padding-top: 1vh; */
+   /* box-sizing: border-box; */
+
+}
+
+.nav {
+   height: 14vh;
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   margin: 0;
+   padding-top: 2vh;
+   background-color: black;
+}
+
+.nav-section1{
+   width: 85vw;
+   height: 14vh;
+   display: flex;
+   margin: 0;
+   padding: 0;
+   justify-content: space-between;
+   
+   
+}
+
+.nav-section1-div1{
+   
+   
+   width: 35vw;
+   height: 14vh;
+   display: inline;
+   
+ }
+
+.nav-section1-div1 img{
+   padding-left: 2vw;
+   display: block;
+   max-width: 98%;
+  
+   max-height: 98%;
+   
+ }
+
+
+.nav-section1-div2{
+   width: 50vw;
+   display: block;
+   height: 14vh;
+
+}
+
+.nav-welcome {
+   display: flex;
+   flex-wrap: wrap;
+   align-content: center;
+   justify-content: flex-end;
+   margin: auto 0;
+   height: 7vh;
+
+
+}
+
+.nav-welcome h1{
+   padding-right: 2rem;
+   font-size: 1.8rem;
+
+}
+
+.nav-welcome h1:hover{
+   color: #88e23b;
+
+}
+
+.nav-links{
+   
+   display: flex;
+   justify-content: right;
+   height: 7vh;
+
+}
+
+.nav-links a{
+   display: flex;
+   align-items: flex-end;
+   list-style: none;
+   padding: 0 2.5vw 1vh;
+   color: #35c9dd;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: "Creepster", "sans-serif";
+    letter-spacing: 0.1rem;
+    -webkit-text-stroke:  1px 	black;
+    text-shadow: 2px 0 0 #88e23b,0 2px 0 #88e23b,-2px 0 0 #88e23bed,0 -2px 0 #88e23b;
+    text-decoration: none;
+   
+    
+ }
+
+ .nav-links a:hover{
+  text-decoration: underline;
+  
+ }
+
+.nav-section2{
+   width: 15vw;
+   height: 14vh;
+   display: block;
+   
+
+ }
+
+.nav-profile-picture{
+   overflow-clip-margin: border-box;
+   margin: auto;
+   aspect-ratio: 1/1;
+   max-height: 100%;
+   max-width: 100%;
+   border-radius: 50%;
+ 
+}
+
+.nav-profile-picture:hover{
+/* 
+   width: 12vh;
+   height: 12vh; */
+
+   border: 5px solid #88e23b;
+
+}
+
+.nav-menu-container{
+   position: absolute;
+   right: 0.1vw;
+   background: whitesmoke;
+   border: 5px solid #88e23b;
+   border-width: 0.2rem;
+   border-radius: 5px;
+   width: 12rem;
+   height: 6rem;
+   
+}
+
+
+.nav-menu-container div{
+   display: flex;
+   height: 3rem;
+   margin: auto;
+}
+
+.nav-menu-container img{
+   background-size: cover;
+   padding: 0.5rem;
+}
+
+
+
+.nav-anchor{
+   display: flex;
+   color: black;
+   font-size: 1rem;
+   font-weight: bold;
+   text-decoration: none;
+   margin: auto auto auto 0.5rem;
+}
+
+.nav-anchor:hover{
+   font-size: 1.5rem;
+} 
+
+.nav-menu-container2{
+
+   height: 3rem;
+   
+}
+
+
+@media (912px < width <= 1127px) {
+   
+
+   .nav-section1-div1{
+      display: flex;
+      align-items: flex-end;
+      width: 25vw;
+      height: 14vh;
+     
+      
+    } 
+    /* .nav-section1-div1 img{
+      margin-bottom: 0;
+      
+    }  */
+       
+     
+}
+
+@media (width <= 912px) {
+   .nav-container{
+      height: 42vh;
+      display: block;
+      
+   }
+
+   .nav{
+      height: 40vh;
+   }
+
+   .nav-section1{
+      width: 100vw;
+      height: 40vh;
+      display: block;
+      
+   }
+   
+   .nav-section1-div1{
+      height: 14vh;
+      width: 100vw;
+      display: block;
+    }
+   
+    .nav-section1-div1 img{
+      padding: 0;
+      display: block;
+      margin: auto;
+    }
+
+
+   
+   .nav-section1-div2{
+      box-sizing: border-box;
+      width: 100vw;
+      height: 26vh;
+   }
+
+   .nav-welcome {
+      height: 8vh;
+      padding: 0 20vw;
+      /* justify-content: center; */
+   
+   }
+
+   .nav-welcome h1{
+      font-size: 1.3rem;
+   
+   }
+
+   .nav-links{ 
+      flex-direction: column;
+      height: 18vh;
+     
+   
+   }
+
+   .nav-links a{ 
+      height: 4.5vh;
+      font-size: 1.2rem;
+      /* padding: 0 2rem; */
+      margin: auto 3vw;
+      
+   
+   }
+
+   .nav-section2{
+      position: absolute;
+      right: 3vw;
+      top: 17vh;
+      height: 10vh;
+
+   }
+   
+   .nav-menu-container{
+      position: absolute;
+      top: 26vh;
+      right:5vw;
+   }
+   
+}

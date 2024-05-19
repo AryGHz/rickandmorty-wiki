@@ -1,0 +1,60 @@
+.terms{
+    box-sizing: border-box;
+    width: 80vw;
+    margin: 5vw auto;
+    padding: 5vw;
+    background-color: white;
+    color: black;
+    border-radius: 12px;
+    text-align: justify;
+}
+.terms h1{
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.terms h2{
+    font-size: 1.3rem;
+    margin-bottom: 1vh;
+}
+
+.terms p{
+    font-size: 1rem;
+    margin: 0 auto 2vh;
+}
+
+
+
+.terms a{
+    font-weight: bold;
+}
+
+@media (650px < width <= 912px) {
+    .terms h1{
+        font-size: 1.5rem;
+    }
+    .terms h2{
+        font-size: 1rem;
+    }
+    .terms p{
+        font-size: 0.8rem;
+    }
+    
+
+}
+
+@media ( width <= 650px) {
+    .terms h1{
+        font-size: 1.2rem;
+    }
+    .terms h2{
+        font-size: 1rem;
+    }
+    .terms p{
+        font-size: 0.8rem;
+    }
+   
+    
+
+}

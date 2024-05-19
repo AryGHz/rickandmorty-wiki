@@ -1,0 +1,167 @@
+.cards{
+    margin: 3vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card{
+    max-width: 300px;
+    display: block;
+    margin: 2vw;
+    border: 3px solid #35c9dd;
+    border-radius: 20px;
+    padding: 1vw;
+}
+
+.card img{
+    /* box-sizing: content-box; */
+    object-fit: cover;
+    border-radius: 20px;
+    max-width: 300px;
+    height: 300px;
+}
+
+.text h2{
+    /* max-width: 25vw; */
+    color: whitesmoke;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 1vh auto 2vh
+
+}
+
+.text button{
+    /* background: none;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: whitesmoke; */
+    /* margin: 1rem auto; */
+    width: 12vw;
+    height: 6vh;
+    background: none;
+    border: 3px solid  #88e23b;
+    border-radius: 5px;
+    color: #35c9dd;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: "Creepster", "sans-serif";
+    letter-spacing: 0.1rem;
+    -webkit-text-stroke:  1px 	black;
+    text-shadow: 2px 0 0 #88e23b,0 2px 0 #88e23b,-2px 0 0 #88e23bed,0 -2px 0 #88e23b;
+}
+
+.text button:hover{
+    background: whitesmoke;
+}
+
+.favorites button{
+    margin:2vh auto ;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: whitesmoke;
+    -webkit-text-stroke:  1px  #35c9dd;
+    
+
+}
+
+.favorites button:hover{
+   
+    font-size: 1.3rem;
+}
+
+@media (650px < width <=912px){
+    .card{
+        max-width: 250px;
+        
+    }
+    .card img{
+        max-width: 250px;
+        height: 250px;
+        
+    }
+    .text h2{
+        font-size: 1.5rem;
+    }
+    .text button{
+        font-size: 1.2rem;
+        width: 25vw;
+    }
+
+    
+
+}
+
+@media (width <=650px){
+    .card{
+        width: 90vw;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        
+    }
+    .card img{
+        width: 40vw;
+        height: 40vw;
+        
+    }
+
+    .card section{
+        width: 40vw;
+    }
+    .text h2{
+        font-size: 1rem;
+    }
+    .text button{
+        font-size: 1rem;
+        width: 25vw;
+        height: 4vh;
+    }
+    .favorites{
+        display: flex;
+    }
+    .favorites button{
+        font-size: 0.8rem;
+    }
+    .favorites button:hover{
+        font-size: 1rem;
+    }    
+    
+
+    
+
+}
+
+/* @media (width <=650px){
+    .card{
+        max-width: 180px;
+        
+    }
+    .card img{
+        max-width: 180px;
+        height: 180px;
+        
+    }
+    .text h2{
+        font-size: 1.2rem;
+    }
+    .text button{
+        font-size: 1rem;
+        width: 25vw;
+    }
+    .favorites button{
+        font-size: 0.8rem;
+    }
+    .favorites button:hover{
+        font-size: 1rem;
+    }    
+    
+
+    
+
+} */
