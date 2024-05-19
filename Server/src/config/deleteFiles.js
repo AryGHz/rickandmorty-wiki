@@ -1,17 +1,18 @@
-const path = require('path');
-const fs = require('fs');
+// const path = require('path');
+// const fs = require('fs');
 
 
 const deleteFiles = (filename)=>{
+    console.log('delete files')
 
-    const destination= path.join(__dirname, '../../public/images',filename);
-    console.log('destination----', destination)
-    fs.unlink(destination, (error)=>{
-        if(error){
-            console.log("error",error)
-        }else{
-            console.log('deleted')
-        }
-    })
+//     const destination= path.join(__dirname, '../../public/images',filename);
+//     console.log('destination----', destination)
+//     fs.unlink(destination, (error)=>{
+//         if(error){
+//             console.log("error",error)
+//         }else{
+//             console.log('deleted')
+//         }
+//     })
 }
 module.exports = deleteFiles;

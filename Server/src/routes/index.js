@@ -39,7 +39,8 @@ router.delete('/fav/:type/:api_id', validateToken, deleteFav);
 router.get('/:resources', validateToken, getResources);
 router.get('/details/:resources/:id', validateToken, getDetails);
 router.put('/updateuser', validateToken, updateUser);
-router.put('/updatepicture',validateToken, upload.single('image'), updateProfilePicture );
+// router.put('/updatepicture',validateToken, upload.single('image'), updateProfilePicture );
+router.put('/updatepicture',validateToken,  updateProfilePicture );
 router.put('/deleteuser',validateToken, deleteUser);
 
 
