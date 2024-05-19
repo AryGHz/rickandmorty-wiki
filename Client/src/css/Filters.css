@@ -28,7 +28,7 @@
 }
 
 .container-filters h2{
-    /* width: 10vw; */
+
     color: #35c9dd;
     font-size: 1.5rem;
     font-weight: bold;
@@ -49,13 +49,6 @@
  
 }
 
-/* .container-filters option{
-    width: 18vw;
-    height: 3vh;
-    border-radius: 5px;
-    margin: auto;
- 
-} */
 
 @media (width<= 912px){
     .filters{

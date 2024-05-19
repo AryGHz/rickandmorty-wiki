@@ -48,7 +48,7 @@
     font-family: "Creepster", "sans-serif";
     font-size: 1.4rem;
     letter-spacing: 0.1rem;
-    /* font-weight: 700; */
+ 
   }
   
   .form button:hover{
@@ -62,7 +62,7 @@
     font-weight: bold;
     display: block;
     width: 25vw;
-    /* height: 2vw; */
+   
     margin: auto;
   }
 

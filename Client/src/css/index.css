@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
-   *{
-  outline: 2px  solid red;
-} 
+ 
    
  body {
   background-image: url("./images/cielo-estrellado.jpg");
@@ -11,19 +9,10 @@
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* width: 100%; */
 
-  /* min-height: 100vh;
-  padding-bottom: 10vh;
-  position: relative; */
-  
 }
 
 #root{
   width: 100vw;
 }
 
-/* code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */

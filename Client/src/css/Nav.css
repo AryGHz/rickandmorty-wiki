@@ -3,9 +3,6 @@
    display: block;
    height: 16vh;
    width: 100vw;
-   /* padding-top: 1vh; */
-   /* box-sizing: border-box; */
-
 }
 
 .nav {
@@ -25,7 +22,6 @@
    margin: 0;
    padding: 0;
    justify-content: space-between;
-   
    
 }
 
@@ -126,10 +122,6 @@
 }
 
 .nav-profile-picture:hover{
-/* 
-   width: 12vh;
-   height: 12vh; */
-
    border: 5px solid #88e23b;
 
 }
@@ -188,14 +180,8 @@
       align-items: flex-end;
       width: 25vw;
       height: 14vh;
-     
-      
     } 
-    /* .nav-section1-div1 img{
-      margin-bottom: 0;
-      
-    }  */
-       
+ 
      
 }
 
@@ -240,8 +226,6 @@
    .nav-welcome {
       height: 8vh;
       padding: 0 20vw;
-      /* justify-content: center; */
-   
    }
 
    .nav-welcome h1{
@@ -259,7 +243,6 @@
    .nav-links a{ 
       height: 4.5vh;
       font-size: 1.2rem;
-      /* padding: 0 2rem; */
       margin: auto 3vw;
       
    

@@ -1,11 +1,8 @@
 .modal{
-    /* position: fixed; */
+    
     display:block;
-    /* background: linear-gradient(135deg,rgba(67,71,68,0.5),rgba(67,71,68,0.5)); */
     background: linear-gradient(135deg,rgba(255,255,255,0.4),rgba(255,255,255,0.4));
-    /* background: gray; */
     border-radius: 20px;
-    /* opacity: 0.5; */
     backdrop-filter: blur(10px);
     width: 50vw;
     height: 50vh;
@@ -16,9 +13,6 @@
     
     
 }
-/* .modal::before{
-    opacity: 0.2;
-} */
 
 .modal-section1{
     display: flex;
@@ -50,8 +44,7 @@
     letter-spacing: 0.1rem;
     -webkit-text-stroke:  1px 	black;
     text-shadow: 2px 0 0 #88e23b,0 2px 0 #88e23b,-2px 0 0 #88e23bed,0 -2px 0 #88e23b;
-    /* color: whitesmoke;
-    font-weight: bold; */
+   
 }
 
 .modal-section2 img{
@@ -74,16 +67,12 @@
     margin: auto;
     padding: 1vw;
     text-decoration: none; 
-    /* border: 3px solid #88e23b; */
     border: 3px solid black;
     border-radius: 8px;
-    /* color: whitesmoke; */
-    /* color: #2E342C; */
     font-size: 1.5rem;
     font-weight: bold;
     text-align: center;
     color: #35c9dd;
-    /* font-size:2rem; */
     font-weight: bold;
     font-family: "Creepster", "sans-serif";
     letter-spacing: 0.1rem;
@@ -93,8 +82,7 @@
 
 .modal-section3 a:hover{
     background: #88e23b;
-    /* font-size: 1.8rem; */
-    
+ 
 }
 
 .modal-section3 button{
@@ -103,16 +91,12 @@
     margin: auto;
     padding: 0.5vh;
     text-decoration: none; 
-    /* border: 3px solid #88e23b; */
     border: 3px solid black;
     border-radius: 8px;
-    /* color: whitesmoke; */
-    /* color: #2E342C; */
     font-size: 1.5rem;
     font-weight: bold;
     text-align: center;
     color: #35c9dd;
-    /* font-size:2rem; */
     font-weight: bold;
     font-family: "Creepster", "sans-serif";
     letter-spacing: 0.1rem;
@@ -122,7 +106,7 @@
 
 .modal-section3 button:hover{
     background: #88e23b;
-    /* font-size: 1.8rem; */
+    
     
 }
 

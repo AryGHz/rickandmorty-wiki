@@ -2,9 +2,7 @@
     color: white;
     width: 70vw;
     margin: 5vh auto;
-    /* background: linear-gradient(135deg,rgba(255,255,255,0.1),rgba(255,255,255,0.2));
-    backdrop-filter: blur(10px);
-    border-radius: 18px; */
+
 }
 
 .about h1{
@@ -20,7 +18,7 @@
     box-sizing: border-box;
     margin:  2rem auto 10rem;
     padding: 2rem;
-    /* width:70vw; */
+
     background: linear-gradient(135deg,rgba(255,255,255,0.1),rgba(255,255,255,0.2));
     backdrop-filter: blur(10px);
     border-radius: 18px;
@@ -37,7 +35,7 @@
 
 
 .about div img{
-    /* margin:  2rem auto 10rem; */
+
     width: 15vw;
 
 }

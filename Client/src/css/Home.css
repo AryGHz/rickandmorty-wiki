@@ -1,80 +1,9 @@
-/* .search{
-    display:inline-flex;
-    width: 40vw;
-    height: 4vh;
-    background: whitesmoke;
-    border: 2px solid #2EE265;
-    border-radius: 20px;
-    opacity: 0.9;
-    margin: 4rem auto 1rem auto;
-}
-
-
-.search input{
-    background: whitesmoke;
-    border: whitesmoke;
-    border-radius: 20px;
-    width: 35vw;
-    height: 3.7vh;
-    text-align: center;
-    font-size: 1.2rem;
-}
-
-.search input::placeholder{
-    color: #3C433B;
-    font-size: 1rem;
-    font-weight: bold;
-    align-items: center;
-    
-}
-
-.search input[type=text]:focus{
-    outline: none;
-    
-}
-
-.search div{
-    background: whitesmoke;
-    border: none;
-    border-radius: 20px;
-    width: 5vw;
-    height: 4vh;
-}
-
-.search img{
-    width: 4vh;
-}
-
-.buttons{
-    display: block;
-    justify-content: space-between;
-    color:whitesmoke;
-    width: 40vw;
-    font-size: 1rem;
-    font-weight: bold
-
-}
-
-.container{
-    display:block
-}
-
-.buttons div{
-    width: 40vw;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    
-} */
 
 .error-message p{
     margin: 5rem auto;
     text-align: center;
     display: block;
     color: #35c9dd;
-    /* -webkit-text-stroke:  1px 	black; */
-    /* text-shadow: 1px 0 0 #88e23b,0 1px 0 #88e23b,-1px 0 0 #88e23bed,0 -1px 0 #88e23b; */
-    /* color: whitesmoke; */
     font-size: 2rem;
     font-weight: bold;
     

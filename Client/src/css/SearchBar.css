@@ -7,10 +7,6 @@
     justify-content: center;
     width: 60vw;
     height: 4vh;
-    /* background: whitesmoke; */
-
-    /* border-radius: 20px; */
-    /* opacity: 0.9; */
     margin: 4rem auto 1rem auto;
 }
 
@@ -69,15 +65,6 @@
 
 }
 
-/* .error-message p{
-    margin: 5rem auto;
-    text-align: center;
-    display: block;
-    color: #35c9dd;
-    font-size: 2rem;
-    font-weight: bold;
-    
-} */
 
 @media (width <= 912px) {
     .search{
