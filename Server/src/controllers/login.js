@@ -36,7 +36,7 @@ const login=  async (req,res)=>{
 
         const token  = await createToken({id:userFound.id});
 
-        res.cookie("token", token)
+        res.cookie("token", token, { sameSite: 'none', secure: true })
         // console.log(token)
 
         return res.status(200).json(userFound)

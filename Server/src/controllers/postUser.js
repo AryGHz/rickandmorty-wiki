@@ -36,7 +36,7 @@ const postUser = async (req,res) =>{
 
         const token  = await createToken({id:newUser.id});
 
-        res.cookie("token", token)
+        res.cookie("token", token, { sameSite: 'none', secure: true });
 
         // console.log(newUser.id)
 
