@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import "../css/Filters.css";
 
-export default function Filters({handleOrder,handleGender,handleLocation,handleSpecies,handleStatus, handleType}){
+export default function Filters({handleOrder,handleGender,handleSpecies,handleStatus, handleType}){
 
     const location = useLocation();
     // console.log(location.pathname)

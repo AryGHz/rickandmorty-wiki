@@ -4,12 +4,6 @@ const deleteFav = async (req,res) =>{
     try {
         const {type, api_id}= req.params
 
-        // const findFavorite = await Favorite.findAll({
-        //     where:{api_id:id},
-        // })
-
-        // console.log("req===",req);
-
         await Favorite.destroy({
             where:{api_id:api_id, type: type, UserId:req.user.id},
       

@@ -2,18 +2,18 @@ import React, { useState, useEffect } from "react";
 import {Link, useLocation} from "react-router-dom"
 import {addFav, removeFav} from '../redux/actions'
 import {  useDispatch, useSelector } from "react-redux";
-
+import { useAuthContext } from "../context/authProvider";
 import "../css/Card.css"
 
 
  export default function Card({api_id,name,image, type }) {
 
+   const {sessionData}=useAuthContext();
+
    const [isFav, SetIsFav] = useState(false);
 
    const myFavorites = useSelector((state)=>{return state.allCharacters})
-   // console.log("muyfavorites", myFavorites)
-   // const alldata = useSelector((state)=>{return state.filteredData})
-
+ 
    const dispatch = useDispatch();
 
    function handleFavorite(){
@@ -21,14 +21,14 @@ import "../css/Card.css"
       if (isFav){
          SetIsFav(false)
          // console.log(api_id, type)
-         dispatch(removeFav(type, api_id ))
+         dispatch(removeFav(type, api_id, {token:sessionData.token} ))
       }
       else{
          SetIsFav(true)
          // changeImage()
          // console.log(replaceImage)
          dispatch(
-            addFav({api_id,name, image, type}))
+            addFav({api_id,name, image, type, token:sessionData.token}))
             // console.log(api_id,name,image, type)
       }
 
@@ -46,29 +46,10 @@ import "../css/Card.css"
 
    useEffect(() => {
       setFavorites();
-      // console.log("mount card",api_id,name, type)
-
+     
    }, []);
 
-   // useEffect(() => {
-   //    console.log("myfavorites render", myFavorites)
-   //    myFavorites.forEach((fav) => {
-   //       console.log('fav!!    -',fav)
-   //       if (fav.api_id === api_id && fav.type === type) {
-            
-   //          SetIsFav(true);  
-        
-   //       }
-   //    });
-
-
-   // }, [myFavorites]);
-
-   // useEffect(()=>{
-   //    console.log("isfav cambia",api_id,name, type)
-   //    // console.log("all data ",alldata)
-   // },[isFav])
-
+  
 
    return (
       

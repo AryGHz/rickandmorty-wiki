@@ -3,10 +3,10 @@ import { getUserFavorites, postUserFavorite, deleteUserFavorite, searchResource 
 import { GET_FAV, ADD_FAV, REMOVE_FAV, FILTER_FAV, ORDER_FAV, GET_DATA, FILTER_GENDER_DATA, FILTER_LOCATION_DATA, FILTER_SPECIES_DATA, FILTER_STATUS_DATA, ORDER_DATA, CLEAR_DATA  } from "./types"
 
 
-export const getFav = () => {
+export const getFav = (token) => {
 
    return async (dispatch) => {
-      const data = await getUserFavorites();
+      const data = await getUserFavorites(token);
       // console.log("getFav  ", data) 
       // console.log(Array.isArray(data))
       if(Array.isArray(data)){
@@ -20,9 +20,9 @@ export const getFav = () => {
 };
 
 
-export const addFav = (character) => {
+export const addFav = (bodyData) => {
    return async (dispatch) => {
-      const data = await postUserFavorite(character);
+      const data = await postUserFavorite(bodyData);
       // console.log("getFav  ", data) 
       if(!data.error){
          return dispatch({
@@ -35,10 +35,10 @@ export const addFav = (character) => {
 };
 
 
-export const removeFav = (type,id) => {
+export const removeFav = (type, api_id, token) => {
   
    return async (dispatch) => {
-      const data= await deleteUserFavorite(type,id)
+      const data= await deleteUserFavorite(type, api_id, token)
       // console.log(data);
       if(Array.isArray(data)){
          return dispatch({
@@ -67,9 +67,9 @@ export function orderFav(order){
 // ---------------------------
 
 
-export function getData(type, id, image){
+export function getData(type, id, image, token){
    return async (dispatch) => {
-      const response= await searchResource(type, id, image);
+      const response= await searchResource(type, id, image, token);
       // console.log("getData  ", response)
       if(!response.error){
          return dispatch({

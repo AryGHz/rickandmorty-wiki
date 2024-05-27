@@ -1,12 +1,16 @@
 import {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import { getDetails } from "../routes/axiosConfig";
+import { useAuthContext } from "../context/authProvider";
 import Card from "../components/Card";
 import "../css/Details.css"
 import locationImage from '../css/images/rickandmorty_location.jpg'
 import episodeImage from '../css/images/rickandmorty-episode.jpeg'
 
 export default function Details(){
+
+    const {sessionData} = useAuthContext()
+    
     
     const {resource,id} = useParams();
 
@@ -20,7 +24,7 @@ export default function Details(){
     useEffect(()=>{
         async function detail(){
             try {
-                const data = await getDetails(resource,id);
+                const data = await getDetails(resource,id,{token:sessionData.token});
              setInfo(data[0]);
             setDetailsArray(data[1])
             setLoading('')

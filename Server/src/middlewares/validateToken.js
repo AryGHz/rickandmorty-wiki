@@ -2,9 +2,9 @@ const jwt = require("jsonwebtoken")
 const {AUTH_TOKEN}= process.env
 
 const validateToken  = (req,res,next)=>{
-    const {token} = req.cookies;
+    const {token} = req.body;
 
-    // console.log(req.headers)
+    console.log("token===>",req.body)
     // console.log(req.cookies)
 
     if(!token){
@@ -16,7 +16,7 @@ const validateToken  = (req,res,next)=>{
         };
 
         req.user = user;
-
+        console.log(req.user)
         next();
     })
 }

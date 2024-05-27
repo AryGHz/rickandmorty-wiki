@@ -24,7 +24,7 @@ export default function Register(){
     const registerUser = async(registerData)=>{
         
             const data = await  register(registerData);
-            // console.log("data = ",data)
+            console.log("data = ",data)
 
             if(Object.keys(data).includes('error')){
                 setAxiosErrors(data.error);

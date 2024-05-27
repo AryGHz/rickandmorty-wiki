@@ -10,7 +10,7 @@ export default function ProtectedRoutes(){
 
     return( <>
                 {
-                sessionData.username
+                sessionData.token
                 
                  ? 
                 <Outlet/>

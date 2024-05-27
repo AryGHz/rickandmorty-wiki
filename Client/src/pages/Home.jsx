@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import {  orderData, filterGender,  filterSpecies, filterStatus, getFav} from "../redux/actions";
+import { useAuthContext } from "../context/authProvider";
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
 import Filters from "../components/Filters";
@@ -15,18 +16,16 @@ import '../css/Card.css'
 
 export default function Home(){
 
+    const {sessionData} = useAuthContext()
+
     const [errors, setErrors] = useState(false);
     const [filters, setFilters] = useState(false);
     const [landingPage, setLandingPage] = useState(true);
 
-    
-    // console.log("cookie:  ",cookie)
     const dispatch = useDispatch();
 
     const searchData =   useSelector((state)=>{return state.filteredData});
-    // console.log("searchData   ", searchData)
-
-
+    
     function handleOrder(evento){
         // console.log("handle")
         dispatch(orderData(evento.target.value))
@@ -70,7 +69,7 @@ export default function Home(){
     }, [searchData]);
     
     useEffect(()=>{
-        dispatch(getFav())
+        dispatch(getFav({token:sessionData.token}))
         // console.log("mounting!!!!!!!!!")
         if(searchData.length <1){setLandingPage(true)}
         setErrors(false)

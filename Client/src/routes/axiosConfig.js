@@ -1,4 +1,8 @@
 import axios from 'axios';
+// import { useAuthContext } from '../context/authProvider';
+
+// const {sessionData}=useAuthContext();
+// const token = sessionData.token
 
 
 export const axiosCustom = axios.create({
@@ -19,7 +23,7 @@ export const getMainCharacters = async ()=> {
    
 };
 
-
+// ---------------------------------
 
 export const register = async (userData)=> {
     try {
@@ -56,22 +60,24 @@ export const logout = async ()=> {
     
 };
 
-export const getUserFavorites = async ()=> {
+// --------------------------------
+
+export const getUserFavorites = async (token)=> {
 
     try {
-        const {data} = await axiosCustom.get('/fav');
+        const {data} = await axiosCustom.post('/getfav',token);
         return data;
     } catch (error) {
-        // console.log(error.response.data)
+        console.log(error.response.data)
         return(error.response.data)
     }
    
     
 };
 
-export const postUserFavorite = async (character)=> {
+export const postUserFavorite = async (bodyData)=> {
     try {
-        const {data} = await axiosCustom.post('/fav',character);
+        const {data} = await axiosCustom.post('/postfav',bodyData);
     return data;
     } catch (error) {
         // console.log(error)
@@ -81,9 +87,9 @@ export const postUserFavorite = async (character)=> {
     
 };
 
-export const deleteUserFavorite = async (type,id)=> {
+export const deleteUserFavorite = async (type,id,token)=> {
     try {
-        const {data} = await axiosCustom.delete(`/fav/${type}/${id}`);
+        const {data} = await axiosCustom.post(`/deletefav/${type}/${id}`,token);
     return data;
     } catch (error) {
         // console.log(error)
@@ -93,11 +99,13 @@ export const deleteUserFavorite = async (type,id)=> {
     
 };
 
-export const searchResource = async (type, id, image)=> {
+// ------------------------------------
+
+export const searchResource = async (type, id, image,token)=> {
 
     try {
-        // console.log(type,id, image)
-        const {data} = await axiosCustom.get(`/${type}/`,{params: {name: id}});
+        console.log(type,id, image,token)
+        const {data} = await axiosCustom.post(`/${type}/`,token ,{params: {name: id}});
         // console.log(data)
 
         await data.forEach(element => {
@@ -117,9 +125,9 @@ export const searchResource = async (type, id, image)=> {
     
 };
 
-export const getDetails = async (resource,id)=> {
+export const getDetails = async (resource,id,token)=> {
     try {
-        const {data} = await axiosCustom.get(`/details/${resource}/${id}`);
+        const {data} = await axiosCustom.post(`/details/${resource}/${id}`, token);
         // console.log(data)
         return(data);
     } catch (error) {
@@ -153,21 +161,21 @@ export const resetPass = async (passData)=> {
     
 };
 
-export const updateProfilePicture = async (picture)=> {
-    try {
-        const {data} = await axiosCustom.put('/updatepicture', picture);
-        // console.log(data)
-        return data;
-    } catch (error) {
-        // console.log(error)
-        return(error.response.data)
-    } 
-};
+// export const updateProfilePicture = async (profileData)=> {
+//     try {
+//         const {data} = await axiosCustom.put('/updatepicture', profileData);
+//         // console.log(data)
+//         return data;
+//     } catch (error) {
+//         // console.log(error)
+//         return(error.response.data)
+//     } 
+// };
 
-export const updateUserInfo= async (passData)=> {
+export const updateUserInfo= async (profileData)=> {
     try {
-        // console.log(passData)
-        const {data} = await axiosCustom.put('/updateuser', passData);
+        console.log(profileData)
+        const {data} = await axiosCustom.put('/updateuser', profileData);
         // console.log(data)
         return data;
     } catch (error) {

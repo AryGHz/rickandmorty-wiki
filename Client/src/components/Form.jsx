@@ -1,5 +1,5 @@
 import "../css/Form.css"
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 
 import Validation from "./Validation";
@@ -76,9 +76,9 @@ export default function Form({activeStatus, axiosFunction, submitButton, axiosEr
                             {   
                                 isActive.image &&
                                 <>
-                                    <label >Update my Profile Picture</label>
-                                    <input  id="input-img" name="profilePicture" type="file" placeholder="Upload Image" onChange={handleChange} required />
-                                    <span>{errors.upload}</span> 
+                                    {/* <label >Update my Profile Picture</label> */}
+                                    {/* <input  id="input-img" name="profilePicture" type="image" placeholder="Upload Image" onChange={handleChange} required /> */}
+                                    {/* <span>{errors.upload}</span>  */}
                                 </>
                                  
                             }

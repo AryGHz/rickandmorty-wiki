@@ -1,5 +1,5 @@
 import picture from '../css/images/rick-nav4.jpg'
-import profilePic from '../css/images/profile-picture.png'
+import profilePic from '../css/images/profile-default.png'
 import logoutIcon from '../css/images/logout.png'
 import loginIcon from '../css/images/login.png'
 import settingsIcon from '../css/images/configuraciones.png'

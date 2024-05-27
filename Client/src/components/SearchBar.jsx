@@ -12,6 +12,8 @@ import { Modal } from './Modal';
 export default function SearchBar(){
 
     const {sessionData} = useAuthContext()
+    
+    const token = {token:sessionData.token}
 
     const [modal, setModal] = useState(false);
 
@@ -34,8 +36,8 @@ export default function SearchBar(){
     const dispatch = useDispatch();
 
     const onSearch = ()=>{
-        if(sessionData.username){
-             dispatch(getData(radio,input, image));
+        if(sessionData.token){
+             dispatch(getData(radio,input, image, token));
         }else{
             setModal(true)
            

@@ -1,5 +1,4 @@
 import { createContext, useContext, useState } from "react";
-import {useCookies} from 'react-cookie';
 
 export const AuthContext = createContext();
 
@@ -16,7 +15,7 @@ export const useAuthContext = ()=>{
 
 export  function AuthProvider({children}){
   
-    const [cookie, setCookie, removeCookie] = useCookies();
+    // const [cookie, setCookie, removeCookie] = useCookies();
    
     const [sessionData, setSessionData] = useState(()=>{
         const data = window.sessionStorage.getItem('sessionData')
@@ -49,7 +48,7 @@ export  function AuthProvider({children}){
 
     return(
         <AuthContext.Provider value={{
-            cookie,
+            // cookie,
             sessionData,
             parseSession,
         }

@@ -3,12 +3,16 @@ import {  useSelector, useDispatch } from "react-redux";
 import Card from "../components/Card";
 import Filter from "../components/Filters";
 import { getFav, filterFav,  orderFav,  } from "../redux/actions";
+import { useAuthContext } from "../context/authProvider";
 
 import '../css/Favorites.css'
 import "../css/Card.css"
 
 
 export default function Favorites(){
+
+    const {sessionData} = useAuthContext()
+  
 
     const allChars = useSelector((state)=>{return state.allCharacters});
     
@@ -26,7 +30,7 @@ export default function Favorites(){
 
     
     useEffect(() => {
-        dispatch(getFav())
+        dispatch(getFav({token:sessionData.token}))
     }, []);
     
     return (
@@ -49,16 +53,7 @@ export default function Favorites(){
                 })
             } 
         </div>
-            
-            {/* <Card resource={allChars} resourceType={"character"} /> */}
+    
         </div>
     </div>);
 }
-
-// export function mapStateToProps(state){
-//     return{
-//         myFavorites: state.myFavorites
-//     }
-// }
-
-// export default connect(mapStateToProps,null)(Favorites);

@@ -12,14 +12,14 @@ const logout = require("../controllers/logout");
 const getMainCharacters = require("../controllers/getMainCharacters")
 const forgotPassword = require("../controllers/forgotPassword");
 const updateUser = require("../controllers/updateUser");
-const updateProfilePicture = require("../controllers/updateProfilePicture");
+// const updateProfilePicture = require("../controllers/updateProfilePicture");
 const resetPassword = require("../controllers/resetPassword");
 const deleteUser = require("../controllers/deleteUser");
 const contactForm = require("../controllers/contactForm");
 
 
 const validateToken = require("../middlewares/validateToken")
-const upload = require("../middlewares/multer")
+
 
 
 
@@ -33,14 +33,13 @@ router.post('/register',postUser);
 router.post('/contact', contactForm);
 router.put('/resetpassword', resetPassword);
 
-router.get('/fav', validateToken, getFav);
-router.post('/fav',validateToken, postFav);
-router.delete('/fav/:type/:api_id', validateToken, deleteFav);
-router.get('/:resources', validateToken, getResources);
-router.get('/details/:resources/:id', validateToken, getDetails);
+router.post('/getfav', validateToken, getFav);
+router.post('/postfav',validateToken, postFav);
+router.post('/deletefav/:type/:api_id', validateToken, deleteFav);
+router.post('/:resources', validateToken, getResources);
+router.post('/details/:resources/:id', validateToken, getDetails);
 router.put('/updateuser', validateToken, updateUser);
-// router.put('/updatepicture',validateToken, upload.single('image'), updateProfilePicture );
-router.put('/updatepicture',validateToken,  updateProfilePicture );
+// router.put('/updatepicture',validateToken,  updateProfilePicture );
 router.put('/deleteuser',validateToken, deleteUser);
 
 

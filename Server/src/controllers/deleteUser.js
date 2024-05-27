@@ -1,6 +1,5 @@
 const {User, Favorite} = require("../DB_connection")
 const bcrypt = require("bcryptjs");
-const deleteFiles = require('../config/deleteFiles')
 
 const deleterUser = async (req,res) =>{
     try {
@@ -25,23 +24,13 @@ const deleterUser = async (req,res) =>{
             return res.status(403).json({error:'Incorrect Password', status:403})
         }else{
 
-            if(userFound.profilePicture){
-                const filename = userFound.profilePicture.split("/").pop();
-                // console.log('filename',filename)
-    
-                // console.log("profilepicture",userFound.profilePicture)
-                deleteFiles(filename);
-            }
             const deleteAllFav = await Favorite.destroy({where:{UserId: userFound.id}});
             // console.log(deleteAllFav)
             
             const deletedUser = await User.destroy({where:{email: userFound.email}});
             // console.log(deletedUser)
 
-           
-
-            res.clearCookie("token")
-            return res.status(200).json({success:true})
+            return res.status(200).json({userStatus:'deleted'})
         }
 
         

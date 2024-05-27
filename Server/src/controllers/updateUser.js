@@ -4,8 +4,8 @@ const validateAndHash = require('../config/validateAndHash');
 
 const updateUser = async (req,res) =>{
     try {
-        const {username, password} = req.body
-        // console.log(req.body)
+        const {profilePicture, username, password} = req.body
+        console.log(req.body)
 
     
 
@@ -14,20 +14,28 @@ const updateUser = async (req,res) =>{
         })
 
         // console.log(userFound)
-        if(username){
+        if(profilePicture){
            
-           const updatedUsername= await userFound.update({username: username});
+            const updatedProfilePicture= await userFound.update({profilePicture: profilePicture});
         //    console.log('update user ---',updatedUsername)
 
-            return res.status(200).json(updatedUsername)
+            return res.status(200).json({profilePicture:userFound.profilePicture})
 
-    }
+        };
+
+        if(username){
+           
+            const updatedUsername= await userFound.update({username: username});
+        //    console.log('update user ---',updatedUsername)
+
+            return res.status(200).json({username:userFound.username})
+
+        }
 
         if(password){
             const hashedPassword = await validateAndHash(password);
             const updatedPassword=await userFound.update({password:hashedPassword})
-            // console.log('update password ---',updatedPassword)
-            return res.status(200).json(updatedPassword)
+            return res.status(200).json({password:'password updated'})
         }
 
         return res.status(400).json({error:'No data provided', status:400});

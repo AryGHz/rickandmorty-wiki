@@ -1,7 +1,7 @@
 const {User} = require("../DB_connection")
 // const bcrypt = require("bcryptjs");
 const validateAndHash = require('../config/validateAndHash')
-const createToken = require("../middlewares/createToken")
+const createToken = require("../config/createToken")
 
 const postUser = async (req,res) =>{
 
@@ -36,11 +36,18 @@ const postUser = async (req,res) =>{
 
         const token  = await createToken({id:newUser.id});
 
-        res.cookie("token", token, { sameSite: 'none', secure: true });
+        // res.cookie("token", token, { sameSite: 'none', secure: true });
 
-        // console.log(newUser.id)
+        // // console.log(newUser.id)
 
-        return res.status(200).json(newUser)
+        return res.status(200).json({
+            id: infoUser.id,
+            username:infoUser.username,
+            email:infoUser.email, 
+            profilePicture:infoUser.profilePicture, 
+            createdAt: infoUser.createdAt,
+            token: token
+        })
 
 
     } catch (error) {

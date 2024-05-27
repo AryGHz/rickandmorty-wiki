@@ -1,6 +1,6 @@
 const transporter = require('../config/sendEmail');
 const {User} = require("../DB_connection");
-const createToken = require("../middlewares/createToken");
+const createToken = require("../config/createToken");
 
 
 const forgotPassword = async(req,res)=>{

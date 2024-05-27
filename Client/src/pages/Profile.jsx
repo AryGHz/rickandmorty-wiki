@@ -1,12 +1,23 @@
 import "../css/Profile.css";
-import profilePic from '../css/images/profile-picture.png'
+import profilePic from '../css/images/profile-default.png';
+import profileFart from '../css/images/profile-fart.jpg'
+import profileHead from '../css/images/profile-head.jpg'
+import profileJerry from '../css/images/profile-jerry.jpg'
+import profileMorty from '../css/images/profile-morty.jpg'
+import profilePoopy from '../css/images/profile-poopy.jpg'
+import profileRick from '../css/images/profile-rick.jpg'
+import profileSnowball from '../css/images/profile-snowball.jpg'
+import profileSummer from '../css/images/profile-summer.jpg'
+
+
+
 import moment from 'moment'
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {useDispatch } from "react-redux";
 import {clearData} from "../redux/actions";
 import { useAuthContext } from "../context/authProvider";
-import { updateProfilePicture, updateUserInfo, deleteUser } from "../routes/axiosConfig";
+import {  updateUserInfo, deleteUser } from "../routes/axiosConfig";
 import { Modal } from "../components/Modal";
 import Form from "../components/Form";
 
@@ -21,10 +32,13 @@ export default function Profile(){
 
     const date = moment(sessionData.createdAt).format("MMM Do YY");
 
-    const[menu,setMenu] = useState(false);
+    const[menu,setMenu] = useState({});
     const[axiosErrors, setAxiosErrors] = useState({});
     const[modal,setModal] = useState(false);
-    const[successMessage,setSuccessMessage] = useState({});
+    const[successMessage,setSuccessMessage] = useState('');
+    const[profilePicture,setProfilePicture] = useState(sessionData.profilePicture || profilePic);
+    const[pictureName,setPictureName] = useState(false);
+
 
 
 
@@ -39,59 +53,52 @@ export default function Profile(){
         }else if(target.innerText === 'Delete Account'){
             setMenu({delete: true})
             // console.log(menu)
+        }else if(target.innerText === 'Modify Profile Picture'){
+            setMenu({picture: true})
+            // console.log(menu)
         }
+
     
     }
 
-    const updateImage = async(imageData)=>{
-        const format = new FormData();
-        format.append('image',imageData);
-        const submit = await updateProfilePicture(format);
-        // console.log(submit);
-        if(submit.error){
-            setAxiosErrors('cannot upload this filetype')
-            setModal(true)
-        }else{
-            window.sessionStorage.setItem('sessionData', JSON.stringify(submit));
-        parseSession();
-
-        }
-        // console.log("update image", sessionData)
-
-    };
+    const handleImage =(e)=>{
+        setProfilePicture(e.target.currentSrc)
+        setPictureName(e.target.currentSrc)
+        console.log(e.target.currentSrc)
+    }
 
     const updateUser = async(data)=>{
 
-            const newData = await updateUserInfo({username:data.username, password:data.password});
-            if(newData.username){
-                window.sessionStorage.setItem('sessionData', JSON.stringify(newData));
-                parseSession();
-                if(menu.username){
-                    setSuccessMessage({username:"username updated!"});
-                    setTimeout(() => {
-                        setSuccessMessage({});
-                    }, 3000);
-                }
-                if(menu.password){
-                    setSuccessMessage({password:"password updated!"});
-                    setTimeout(() => {
-                        setSuccessMessage({});
-                    }, 3000);
-                }
+            console.log(data)
+            const newData = await updateUserInfo({profilePicture:pictureName, username:data.username, password:data.password, token:sessionData.token});
+
+            console.log(Object.keys(newData)[0])
             
-            
+            if(newData.error){
+                setAxiosErrors('Error, please try again later')
+                setModal(true);
+
             }else{
-                // console.log("error",newData)
-                setAxiosErrors(newData.error);
-                setModal(true)
+
+                const updatedName =Object.keys(newData)[0];
+                const updatedValue = Object.values(newData)[0];
+                const updatedSessionData = {...sessionData, [updatedName]:updatedValue}
+                window.sessionStorage.setItem('sessionData', JSON.stringify(updatedSessionData));
+                parseSession();
+                setPictureName(false)
+                setSuccessMessage(`${updatedName} updated!`)
+                setTimeout(() => {
+                    setSuccessMessage('');
+                }, 3000);
+
+                console.log(sessionData)
+    
             }
-        
-            // console.log("update user", sessionData)
     };
 
-    const deleteUserAccount = async(password)=>{
-        const deleteStatus  = await deleteUser(password);
-            if(deleteStatus.success){
+    const deleteUserAccount = async(inputData)=>{
+        const deleteStatus  = await deleteUser({password:inputData.password, token:sessionData.token});
+            if(deleteStatus.userStatus){
                 dispatch(clearData())
                 window.sessionStorage.removeItem('sessionData');
                 parseSession();
@@ -114,6 +121,34 @@ export default function Profile(){
             <h1 className="profile-h1">Profile Settings</h1>
             
             <section className="profile-section1">
+                <div>
+                    <img className="profile-section1-img" src={profilePicture}></img>
+                <h3 onClick={showMenu} >Modify Profile Picture</h3>
+                {
+                    menu.picture &&
+                    <div id="profileSubmitButton"  >
+                        <div>
+                            <p>Select your Profile Picture</p>
+                            <img src={profilePic} onClick={handleImage} ></img>
+                            <img src={profileFart} onClick={handleImage} ></img>
+                            <img src={profileHead} onClick={handleImage} ></img>
+                            <img src={profileJerry} onClick={handleImage} ></img>
+                            <img src={profileMorty} onClick={handleImage} ></img>
+                            <img src={profilePoopy} onClick={handleImage} ></img>
+                            <img src={profileRick} onClick={handleImage} ></img>
+                            <img src={profileSnowball} onClick={handleImage} ></img>
+                            <img src={profileSummer} onClick={handleImage} ></img>
+                        </div>
+                        
+                        
+                        < Form  activeStatus={{image:true}} axiosFunction={updateUser} submitButton={"Update Profile Picture"} axiosError={axiosErrors}/>
+                        <p> {successMessage}</p>
+                    
+                        
+                    </div>
+                    
+                }
+                </div>
                 <div id="second-div" className="profile-section1-div1">
                     <h2>My Personal Info</h2>
                     <p>Username </p>
@@ -123,11 +158,7 @@ export default function Profile(){
                     <p>Member since </p>
                     <span>{date}</span>
                 </div>
-            <div>
-                <img alt="profile" src={sessionData.profilePicture || profilePic} className="profile-picture" /> 
-
-                <Form activeStatus={{image:true}} axiosFunction={updateImage} submitButton={"Update Picture"} axiosError={axiosErrors} />
-            </div>
+            
            
             </section>
             <section className="profile-section2">
@@ -140,7 +171,7 @@ export default function Profile(){
                          <Form  activeStatus={{username:true}} axiosFunction={updateUser} submitButton={"Update Username"} axiosError={axiosErrors}/>
                     {
 
-                        <p> {successMessage.username}</p>
+                        <p> {successMessage}</p>
                     }
                         
                     </div>
@@ -154,7 +185,7 @@ export default function Profile(){
                          <Form  activeStatus={{password:true,confirmPassword:true}} axiosFunction={updateUser} submitButton={"Update Password"} axiosError={axiosErrors}/>
                         {
 
-                            <p> {successMessage.password}</p>
+                            <p> {successMessage}</p>
                         }
 
                     </div>

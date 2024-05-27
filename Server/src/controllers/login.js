@@ -1,6 +1,6 @@
 const {User} = require('../DB_connection')
 const bcrypt = require("bcryptjs")
-const createToken = require("../middlewares/createToken")
+const createToken = require("../config/createToken")
 
 const login=  async (req,res)=>{
 
@@ -26,9 +26,6 @@ const login=  async (req,res)=>{
 
 
         const validatePassword= await bcrypt.compare(password, userFound.password)
-        // console.log(password, userFound.password)
-   
-        // console.log(validatePassword)
 
         if(!validatePassword){
             return res.status(403).json({error:"Invalid Password", status:403})
@@ -36,28 +33,22 @@ const login=  async (req,res)=>{
 
         const token  = await createToken({id:userFound.id});
 
-        res.cookie("token", token, { sameSite: 'none', secure: true })
-        // console.log(token)
+        // res.cookie("token", token, { sameSite: 'none', secure: true })
+        // // console.log(token)
 
-        return res.status(200).json(userFound)
+        return res.status(200).json({
+            id: userFound.id,
+            username:userFound.username,
+            email:userFound.email, 
+            profilePicture:userFound.profilePicture, 
+            createdAt: userFound.createdAt,
+            token: token
+        })
     
 
     } catch (error) {
         return res.status(500).json({error:error.message, status:500})
     }
-
-   
-
-    // users.forEach((user)=>{
-    //     if(user.email=== email && user.password===password){
-    //         // return res.status(200).send(res.json({access:"true"}));}
-    //         console.log(user)
-    //         return res.status(200).json({access:"true"})
-    //      }
-
-    //     return res.status(404).send(res.json({access:"false"}))
-    // })
-
     
 };
 
