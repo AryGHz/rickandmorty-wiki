@@ -32,9 +32,10 @@ export default function ContactForm(){
                 setMessage({success:true})
 
             }else{
-                setAxiosErrors({
-                    error:'Failed to send message'
-                });
+                setMessage({})
+                setAxiosErrors(
+                    'error: Failed to send message'
+                );
                 setModal(true)
             }
 

@@ -14,6 +14,13 @@
     padding: 1vw;
 }
 
+.card:hover{
+    border: 4px solid  #88e23b;
+    ;
+    border-radius: 20px;
+    padding: 1vw;
+}
+
 .card img{
 
     object-fit: cover;
@@ -21,6 +28,7 @@
     max-width: 300px;
     height: 300px;
 }
+
 
 .text h2{
    
@@ -49,7 +57,8 @@
 }
 
 .text button:hover{
-    background: whitesmoke;
+    font-size: 1.7rem;
+    border: 4px solid  #35c9dd;
 }
 
 .favorites button{

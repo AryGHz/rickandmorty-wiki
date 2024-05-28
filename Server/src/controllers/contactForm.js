@@ -2,9 +2,9 @@ const transporter = require('../config/sendEmail');
 
 const ContactForm = async(req,res)=>{
     try {
-        const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
+        const {NODEMAILER_EMAIL} = process.env;
         const {name,email,message} = req.body;
-        // console.log(req.body);
+        // console.log(NODEMAILER_EMAIL, process.env.NODEMAILER_PASSWORD);
 
         if(!name || !email || !message){
             return res.status(400).json({error:"Missing Data", status:400})
@@ -12,7 +12,7 @@ const ContactForm = async(req,res)=>{
 
         const sendEmailtoAdmin = await transporter.sendMail({
                 from: '"Rick and Morty Wiki" <noreply@rickandmorty.com>',
-                to: `${ADMIN_EMAIL}`, 
+                to: `${NODEMAILER_EMAIL}`, 
                 subject: "Contact Form", 
                 text: "", 
                 html: `<h1>Hi</h1>
